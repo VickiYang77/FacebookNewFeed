@@ -15,7 +15,7 @@ class FeedViewController: UICollectionViewController {
         super.viewDidLoad()
         navigationItem.title = "Facebook Feed"
         collectionView.alwaysBounceVertical = true
-        collectionView.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        collectionView.backgroundColor = UIColor(white: 0.9, alpha: 1)
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
     }
     
@@ -32,27 +32,11 @@ class FeedViewController: UICollectionViewController {
 // MARK: - UICollectionViewController Delegate
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSizeMake(view.frame.width, 60)
+        return CGSizeMake(view.frame.width, 450)
     }
 }
 
 class FeedCell: UICollectionViewCell {
-    
-    let profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .white
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Sample Name"
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,16 +47,64 @@ class FeedCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupView() {
-        backgroundColor = .yellow
+    let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "vicki_profile")
+        imageView.contentMode = .scaleAspectFit
+        imageView.backgroundColor = .white
+        return imageView
+    }()
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 2
         
-        addSubview(profileImageView)
+        let attributedText = NSMutableAttributedString(string: "Vicki", attributes: [.font : UIFont.boldSystemFont(ofSize: 14)])
+        
+        attributedText.append(NSAttributedString(string: "\nDecenber 25  •  Taipei Taiwan  •  ", attributes: [.font : UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.lightGray]))
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 4
+        attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
+
+        let attachment = NSTextAttachment()
+        attachment.image = UIImage(named: "globe_small")
+        attachment.bounds = CGRectMake(0, -2, 12, 12)
+        attributedText.append(NSAttributedString(attachment: attachment))
+        
+        label.attributedText = attributedText
+        return label
+    }()
+    
+    let statusTextView: UITextView = {
+        let textView = UITextView()
+        textView.text = "Hello!!"
+        textView.font = .systemFont(ofSize: 14)
+        return textView
+    }()
+    
+    let statusImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.image = UIImage(named: "vicki_status")
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
+        return imageView
+    }()
+    
+    func setupView() {
+        backgroundColor = .white
+        
         addSubview(nameLabel)
+        addSubview(profileImageView)
+        addSubview(statusTextView)
+        addSubview(statusImageView)
         
         addConstraintsWithFormat(format: "H:|-8-[v0(44)]-8-[v1]|", views: profileImageView, nameLabel)
+        addConstraintsWithFormat(format: "H:|-4-[v0]-4-|", views: statusTextView)
+        addConstraintsWithFormat(format: "H:|[v0]|", views: statusImageView)
         
-        addConstraintsWithFormat(format: "V:|-8-[v0(44)]|", views: profileImageView)
-        addConstraintsWithFormat(format: "V:|[v0]|", views: nameLabel)
+        addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
+        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1(30)]-4-[v2]|", views: profileImageView, statusTextView, statusImageView)
     }
 }
 
