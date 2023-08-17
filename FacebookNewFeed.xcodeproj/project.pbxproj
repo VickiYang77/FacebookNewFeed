@@ -14,6 +14,7 @@
 		996D8A962A83EB9100D8F355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 996D8A942A83EB9100D8F355 /* LaunchScreen.storyboard */; };
 		996D8A9E2A8E73FB00D8F355 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */; };
 		996D8AA02A8E742100D8F355 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8A9F2A8E742100D8F355 /* FeedCell.swift */; };
+		996D8AA22A8E78F700D8F355 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8AA12A8E78F700D8F355 /* PostModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		996D8A972A83EB9100D8F355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		996D8A9F2A8E742100D8F355 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		996D8AA12A8E78F700D8F355 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,41 @@
 		996D8A882A83EB8F00D8F355 /* FacebookNewFeed */ = {
 			isa = PBXGroup;
 			children = (
+				996D8AA52A8E790D00D8F355 /* ViewController */,
+				996D8AA42A8E790500D8F355 /* View */,
+				996D8AA32A8E78FA00D8F355 /* Model */,
 				996D8A892A83EB8F00D8F355 /* AppDelegate.swift */,
 				996D8A8B2A83EB8F00D8F355 /* SceneDelegate.swift */,
-				996D8A8D2A83EB8F00D8F355 /* ViewController.swift */,
 				996D8A922A83EB9100D8F355 /* Assets.xcassets */,
 				996D8A942A83EB9100D8F355 /* LaunchScreen.storyboard */,
 				996D8A972A83EB9100D8F355 /* Info.plist */,
-				996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */,
-				996D8A9F2A8E742100D8F355 /* FeedCell.swift */,
 			);
 			path = FacebookNewFeed;
+			sourceTree = "<group>";
+		};
+		996D8AA32A8E78FA00D8F355 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				996D8AA12A8E78F700D8F355 /* PostModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		996D8AA42A8E790500D8F355 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				996D8A9F2A8E742100D8F355 /* FeedCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		996D8AA52A8E790D00D8F355 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				996D8A8D2A83EB8F00D8F355 /* ViewController.swift */,
+				996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				996D8A9E2A8E73FB00D8F355 /* ViewController+Extension.swift in Sources */,
+				996D8AA22A8E78F700D8F355 /* PostModel.swift in Sources */,
 				996D8AA02A8E742100D8F355 /* FeedCell.swift in Sources */,
 				996D8A8E2A83EB8F00D8F355 /* ViewController.swift in Sources */,
 				996D8A8A2A83EB8F00D8F355 /* AppDelegate.swift in Sources */,

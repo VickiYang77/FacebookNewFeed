@@ -9,6 +9,40 @@ import UIKit
 
 class FeedCell: UICollectionViewCell {
     
+    var post: Post? {
+        didSet {
+            if let name = post?.name {
+                let attributedText = NSMutableAttributedString(string: name, attributes: [.font : UIFont.boldSystemFont(ofSize: 14)])
+                
+                attributedText.append(NSAttributedString(string: "\nDecenber 25  •  Taipei Taiwan  •  ", attributes: [.font : UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.rgb(red: 155, green: 161, blue: 161)]))
+                
+
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineSpacing = 4
+                attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
+
+                let attachment = NSTextAttachment()
+                attachment.image = UIImage(named: "globe_small")
+                attachment.bounds = CGRectMake(0, -2, 12, 12)
+                attributedText.append(NSAttributedString(attachment: attachment))
+                
+                nameLabel.attributedText = attributedText
+            }
+            
+            if let statusText = post?.statusText {
+                statusTextView.text = statusText
+            }
+            
+            if let profileImageName = post?.profileImageName {
+                profileImageView.image = UIImage(named: profileImageName)
+            }
+            
+            if let statusImageName = post?.statusImageName {
+                statusImageView.image = UIImage(named: statusImageName)
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -20,7 +54,6 @@ class FeedCell: UICollectionViewCell {
     
     let profileImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "vicki_profile")
         imageView.contentMode = .scaleAspectFit
         imageView.backgroundColor = .white
         return imageView
@@ -29,35 +62,18 @@ class FeedCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
-        
-        let attributedText = NSMutableAttributedString(string: "Vicki", attributes: [.font : UIFont.boldSystemFont(ofSize: 14)])
-        
-        attributedText.append(NSAttributedString(string: "\nDecenber 25  •  Taipei Taiwan  •  ", attributes: [.font : UIFont.systemFont(ofSize: 12), .foregroundColor: UIColor.rgb(red: 155, green: 161, blue: 161)]))
-        
-
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = 4
-        attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedText.string.count))
-
-        let attachment = NSTextAttachment()
-        attachment.image = UIImage(named: "globe_small")
-        attachment.bounds = CGRectMake(0, -2, 12, 12)
-        attributedText.append(NSAttributedString(attachment: attachment))
-        
-        label.attributedText = attributedText
         return label
     }()
     
     let statusTextView: UITextView = {
         let textView = UITextView()
-        textView.text = "Hello!!"
         textView.font = .systemFont(ofSize: 14)
+        textView.isScrollEnabled = false
         return textView
     }()
     
     let statusImageView: UIImageView = {
        let imageView = UIImageView()
-        imageView.image = UIImage(named: "vicki_status")
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         return imageView
@@ -112,7 +128,7 @@ class FeedCell: UICollectionViewCell {
         addConstraintsWithFormat(format: "H:|[v0(v2)][v1(v2)][v2]|", views: likeButton, commentButton, shareButton)
         
         addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
-        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1(30)]-4-[v2]-8-[v3(24)]-8-[v4(0.4)][v5(44)]|", views: profileImageView, statusTextView, statusImageView, likesCommentsLabel, dividerLineView, likeButton)
+        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-8-[v4(0.4)][v5(44)]|", views: profileImageView, statusTextView, statusImageView, likesCommentsLabel, dividerLineView, likeButton)
         
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: commentButton)
         addConstraintsWithFormat(format: "V:[v0(44)]|", views: shareButton)
