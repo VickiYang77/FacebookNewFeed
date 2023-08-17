@@ -12,6 +12,8 @@
 		996D8A8E2A83EB8F00D8F355 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8A8D2A83EB8F00D8F355 /* ViewController.swift */; };
 		996D8A932A83EB9100D8F355 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 996D8A922A83EB9100D8F355 /* Assets.xcassets */; };
 		996D8A962A83EB9100D8F355 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 996D8A942A83EB9100D8F355 /* LaunchScreen.storyboard */; };
+		996D8A9E2A8E73FB00D8F355 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */; };
+		996D8AA02A8E742100D8F355 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8A9F2A8E742100D8F355 /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		996D8A922A83EB9100D8F355 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		996D8A952A83EB9100D8F355 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		996D8A972A83EB9100D8F355 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		996D8A9F2A8E742100D8F355 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				996D8A922A83EB9100D8F355 /* Assets.xcassets */,
 				996D8A942A83EB9100D8F355 /* LaunchScreen.storyboard */,
 				996D8A972A83EB9100D8F355 /* Info.plist */,
+				996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */,
+				996D8A9F2A8E742100D8F355 /* FeedCell.swift */,
 			);
 			path = FacebookNewFeed;
 			sourceTree = "<group>";
@@ -134,6 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				996D8A9E2A8E73FB00D8F355 /* ViewController+Extension.swift in Sources */,
+				996D8AA02A8E742100D8F355 /* FeedCell.swift in Sources */,
 				996D8A8E2A83EB8F00D8F355 /* ViewController.swift in Sources */,
 				996D8A8A2A83EB8F00D8F355 /* AppDelegate.swift in Sources */,
 				996D8A8C2A83EB8F00D8F355 /* SceneDelegate.swift in Sources */,
