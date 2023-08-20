@@ -16,6 +16,11 @@ class FeedViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let memoryCapacity = 500 * 1024 * 1024
+        let diskCapacity = 500 * 1024 * 1024
+        let urlCache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: "myDiskPath")
+        URLCache.shared = urlCache
+        
         let postVicki = Post()
         postVicki.name = "Vicki Yang"
         postVicki.statusText = "Hello World!"
@@ -23,6 +28,7 @@ class FeedViewController: UICollectionViewController {
         postVicki.statusImageName = "vicki_status"
         postVicki.numLikes = 777
         postVicki.numComments = 300
+        postVicki.statusImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWIvZv0L7SgYGKvUxKRyuO-ROMoIWwc_t6mLdsHaSYxYlsa0SuqEmy2MbOkTDE2FZDbgM&usqp=CAU"
         
         let postSteve = Post()
         postSteve.name = "Steve Jobs"
@@ -31,6 +37,7 @@ class FeedViewController: UICollectionViewController {
         postSteve.statusImageName = "steve_status"
         postSteve.numLikes = 150
         postSteve.numComments = 222
+        postSteve.statusImageUrl = "https://womany.net/cdn-cgi/image/w=800,fit=scale-down,f=auto/https://castle.womany.net/images/content/pictures/135467/44f0120fd20ef3dc899042bd4b14eb2a.jpg"
         
         let postZuck = Post()
         postZuck.name = "Mark Zuckerberg"
@@ -62,6 +69,7 @@ class FeedViewController: UICollectionViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
+        // 轉向
         collectionView.collectionViewLayout.invalidateLayout()
     }
 }

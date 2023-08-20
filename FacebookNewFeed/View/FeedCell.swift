@@ -7,6 +7,8 @@
 
 import UIKit
 
+var imageCache = NSCache<NSString, UIImage>()
+
 class FeedCell: UICollectionViewCell {
     
     var post: Post? {
@@ -37,8 +39,23 @@ class FeedCell: UICollectionViewCell {
                 profileImageView.image = UIImage(named: profileImageName)
             }
             
-            if let statusImageName = post?.statusImageName {
-                statusImageView.image = UIImage(named: statusImageName)
+            statusImageView.image = nil
+            if let statusImageUrl = post?.statusImageUrl {
+                URLSession.shared.dataTask(with: URL(string: statusImageUrl)!) { (data, response, error) in
+                    if error != nil {
+                        return
+                    }
+                    
+                    let image = UIImage(data: data!)
+                    
+                    DispatchQueue.main.async {
+                        self.statusImageView.image = image
+                    }
+                }.resume()
+            } else {
+                if let statusImageName = post?.statusImageName {
+                    statusImageView.image = UIImage(named: statusImageName)
+                }
             }
         }
     }
