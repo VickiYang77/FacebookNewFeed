@@ -14,7 +14,7 @@ extension UIColor {
 }
 
 extension UIView {
-    func addConstraintsWithFormat(format: String, views: UIView...) {
+    func addConstraintsWithFormat(_ format: String, views: UIView...) {
         var viewDictionary = [String: UIView]()
         for (index, view) in views.enumerated() {
             let key = "v\(index)"

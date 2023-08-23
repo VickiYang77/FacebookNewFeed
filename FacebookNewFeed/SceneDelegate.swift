@@ -18,15 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowSecne)
         window?.makeKeyAndVisible()
         
-        let feedVC = FeedViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        let nav = UINavigationController(rootViewController: feedVC)
-        window?.rootViewController = nav
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = UIColor(red: 51/255, green: 90/255, blue: 149/255, alpha: 1)
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        nav.navigationBar.standardAppearance = appearance
-        nav.navigationBar.scrollEdgeAppearance = appearance
+        window?.rootViewController = CustomTabBarController()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

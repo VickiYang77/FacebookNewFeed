@@ -21,14 +21,23 @@ class FeedViewController: UICollectionViewController {
         let urlCache = URLCache(memoryCapacity: memoryCapacity, diskCapacity: diskCapacity, diskPath: "myDiskPath")
         URLCache.shared = urlCache
         
-        let postVicki = Post()
-        postVicki.name = "Vicki Yang"
-        postVicki.statusText = "Hello World!"
-        postVicki.profileImageName = "vicki_profile"
-        postVicki.statusImageName = "vicki_status"
-        postVicki.numLikes = 777
-        postVicki.numComments = 300
-        postVicki.statusImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWIvZv0L7SgYGKvUxKRyuO-ROMoIWwc_t6mLdsHaSYxYlsa0SuqEmy2MbOkTDE2FZDbgM&usqp=CAU"
+        let postKiki = Post()
+        postKiki.name = "Kiki"
+        postKiki.statusText = "《魔女宅急便》於1989年首映，是吉卜力工作室推出的動畫電影，也是吉卜力工作室製作的第4部作品，由宮崎駿所執導、製作與編劇並獲得1989年Animage漫畫大獎。"
+        postKiki.profileImageName = "kiki_profile"
+        postKiki.statusImageName = "kiki_status"
+        postKiki.numLikes = 777
+        postKiki.numComments = 300
+        postKiki.statusImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWIvZv0L7SgYGKvUxKRyuO-ROMoIWwc_t6mLdsHaSYxYlsa0SuqEmy2MbOkTDE2FZDbgM&usqp=CAU"
+        
+        let postGirlWorld = Post()
+        postGirlWorld.name = "Girl's world"
+        postGirlWorld.statusText = "Hello World!"
+        postGirlWorld.profileImageName = "girlWorld_profile"
+        postGirlWorld.statusImageName = "girlWorld_status"
+        postGirlWorld.numLikes = 666
+        postGirlWorld.numComments = 37
+        postGirlWorld.statusImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXZzpa26AfiwimO1WvnLoko2IOCgmHxBtYyAYTaBx4P04gr8jEkkViJxqXZNbiurZq0iQ&usqp=CAU"
         
         let postSteve = Post()
         postSteve.name = "Steve Jobs"
@@ -37,7 +46,7 @@ class FeedViewController: UICollectionViewController {
         postSteve.statusImageName = "steve_status"
         postSteve.numLikes = 150
         postSteve.numComments = 222
-        postSteve.statusImageUrl = "https://womany.net/cdn-cgi/image/w=800,fit=scale-down,f=auto/https://castle.womany.net/images/content/pictures/135467/44f0120fd20ef3dc899042bd4b14eb2a.jpg"
+        postSteve.statusImageUrl = "https://argjirolajm.net/wp-content/uploads/2021/04/Apple-768x410.jpg"
         
         let postZuck = Post()
         postZuck.name = "Mark Zuckerberg"
@@ -46,8 +55,10 @@ class FeedViewController: UICollectionViewController {
         postZuck.statusImageName = "zuck_status"
         postZuck.numLikes = 333
         postZuck.numComments = 444
+        postZuck.statusImageUrl = "https://images.gizbot.com/webp/img/2022/11/mark-zuckerberg-firing-meta-employees-1667992306.jpg"
         
-        posts.append(postVicki)
+        posts.append(postKiki)
+        posts.append(postGirlWorld)
         posts.append(postSteve)
         posts.append(postZuck)
         

@@ -15,6 +15,10 @@
 		996D8A9E2A8E73FB00D8F355 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */; };
 		996D8AA02A8E742100D8F355 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8A9F2A8E742100D8F355 /* FeedCell.swift */; };
 		996D8AA22A8E78F700D8F355 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8AA12A8E78F700D8F355 /* PostModel.swift */; };
+		996D8AA72A96612B00D8F355 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8AA62A96612B00D8F355 /* CustomTabBarController.swift */; };
+		996D8AA92A9662C900D8F355 /* FriendRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8AA82A9662C900D8F355 /* FriendRequestsViewController.swift */; };
+		996D8AAB2A9663C900D8F355 /* FriendRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8AAA2A9663C900D8F355 /* FriendRequestCell.swift */; };
+		996D8AAD2A9663E200D8F355 /* FriendRequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996D8AAC2A9663E200D8F355 /* FriendRequestHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		996D8A9F2A8E742100D8F355 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		996D8AA12A8E78F700D8F355 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		996D8AA62A96612B00D8F355 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		996D8AA82A9662C900D8F355 /* FriendRequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsViewController.swift; sourceTree = "<group>"; };
+		996D8AAA2A9663C900D8F355 /* FriendRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestCell.swift; sourceTree = "<group>"; };
+		996D8AAC2A9663E200D8F355 /* FriendRequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				996D8A9F2A8E742100D8F355 /* FeedCell.swift */,
+				996D8AAA2A9663C900D8F355 /* FriendRequestCell.swift */,
+				996D8AAC2A9663E200D8F355 /* FriendRequestHeader.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -93,6 +103,8 @@
 			children = (
 				996D8A8D2A83EB8F00D8F355 /* ViewController.swift */,
 				996D8A9D2A8E73FB00D8F355 /* ViewController+Extension.swift */,
+				996D8AA62A96612B00D8F355 /* CustomTabBarController.swift */,
+				996D8AA82A9662C900D8F355 /* FriendRequestsViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -168,9 +180,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				996D8A9E2A8E73FB00D8F355 /* ViewController+Extension.swift in Sources */,
+				996D8AA72A96612B00D8F355 /* CustomTabBarController.swift in Sources */,
 				996D8AA22A8E78F700D8F355 /* PostModel.swift in Sources */,
 				996D8AA02A8E742100D8F355 /* FeedCell.swift in Sources */,
+				996D8AAD2A9663E200D8F355 /* FriendRequestHeader.swift in Sources */,
+				996D8AAB2A9663C900D8F355 /* FriendRequestCell.swift in Sources */,
 				996D8A8E2A83EB8F00D8F355 /* ViewController.swift in Sources */,
+				996D8AA92A9662C900D8F355 /* FriendRequestsViewController.swift in Sources */,
 				996D8A8A2A83EB8F00D8F355 /* AppDelegate.swift in Sources */,
 				996D8A8C2A83EB8F00D8F355 /* SceneDelegate.swift in Sources */,
 			);

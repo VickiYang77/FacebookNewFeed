@@ -137,17 +137,17 @@ class FeedCell: UICollectionViewCell {
         addSubview(commentButton)
         addSubview(shareButton)
         
-        addConstraintsWithFormat(format: "H:|-8-[v0(44)]-8-[v1]|", views: profileImageView, nameLabel)
-        addConstraintsWithFormat(format: "H:|-4-[v0]-4-|", views: statusTextView)
-        addConstraintsWithFormat(format: "H:|[v0]|", views: statusImageView)
-        addConstraintsWithFormat(format: "H:|-12-[v0]|", views: likesCommentsLabel)
-        addConstraintsWithFormat(format: "H:|-12-[v0]-12-|", views: dividerLineView)
-        addConstraintsWithFormat(format: "H:|[v0(v2)][v1(v2)][v2]|", views: likeButton, commentButton, shareButton)
+        addConstraintsWithFormat("H:|-8-[v0(44)]-8-[v1]|", views: profileImageView, nameLabel)
+        addConstraintsWithFormat("H:|-4-[v0]-4-|", views: statusTextView)
+        addConstraintsWithFormat("H:|[v0]|", views: statusImageView)
+        addConstraintsWithFormat("H:|-12-[v0]|", views: likesCommentsLabel)
+        addConstraintsWithFormat("H:|-12-[v0]-12-|", views: dividerLineView)
+        addConstraintsWithFormat("H:|[v0(v2)][v1(v2)][v2]|", views: likeButton, commentButton, shareButton)
         
-        addConstraintsWithFormat(format: "V:|-12-[v0]", views: nameLabel)
-        addConstraintsWithFormat(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-8-[v4(0.4)][v5(44)]|", views: profileImageView, statusTextView, statusImageView, likesCommentsLabel, dividerLineView, likeButton)
+        addConstraintsWithFormat("V:|-12-[v0]", views: nameLabel)
+        addConstraintsWithFormat("V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-8-[v4(0.4)][v5(44)]|", views: profileImageView, statusTextView, statusImageView, likesCommentsLabel, dividerLineView, likeButton)
         
-        addConstraintsWithFormat(format: "V:[v0(44)]|", views: commentButton)
-        addConstraintsWithFormat(format: "V:[v0(44)]|", views: shareButton)
+        addConstraintsWithFormat("V:[v0(44)]|", views: commentButton)
+        addConstraintsWithFormat("V:[v0(44)]|", views: shareButton)
     }
 }
