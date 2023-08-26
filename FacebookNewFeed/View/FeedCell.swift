@@ -11,6 +11,8 @@ var imageCache = NSCache<NSString, UIImage>()
 
 class FeedCell: UICollectionViewCell {
     
+    var feedViewController: FeedViewController?
+    
     var post: Post? {
         didSet {
             if let name = post?.name {
@@ -93,6 +95,7 @@ class FeedCell: UICollectionViewCell {
        let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
+        imageView.isUserInteractionEnabled = true
         return imageView
     }()
     
@@ -124,6 +127,10 @@ class FeedCell: UICollectionViewCell {
         return button
     }
     
+    @objc func animate() {
+        feedViewController?.animate(statusImageView)
+    }
+    
     func setupView() {
         backgroundColor = .white
         
@@ -136,6 +143,8 @@ class FeedCell: UICollectionViewCell {
         addSubview(likeButton)
         addSubview(commentButton)
         addSubview(shareButton)
+        
+        statusImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(animate)))
         
         addConstraintsWithFormat("H:|-8-[v0(44)]-8-[v1]|", views: profileImageView, nameLabel)
         addConstraintsWithFormat("H:|-4-[v0]-4-|", views: statusTextView)

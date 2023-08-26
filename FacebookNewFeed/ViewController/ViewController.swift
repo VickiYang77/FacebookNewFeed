@@ -68,6 +68,85 @@ class FeedViewController: UICollectionViewController {
         collectionView.register(FeedCell.self, forCellWithReuseIdentifier: cellId)
     }
     
+    var statusImageView: UIImageView?
+    let blackBackgroundView = UIView()
+    let zoomImageView = UIImageView()
+    let navBarCoverView = UIView()
+    let tabBarCoverView = UIView()
+    
+    func animate(_ statusImageView: UIImageView) {
+        self.statusImageView = statusImageView
+        if let startingFrame = statusImageView.superview?.convert(statusImageView.frame, to: nil) {
+            statusImageView.alpha = 0
+            
+            // black backGround View
+            blackBackgroundView.frame = self.view.frame
+            blackBackgroundView.backgroundColor = .black
+            blackBackgroundView.alpha = 0
+            view.addSubview(blackBackgroundView)
+            
+            // navBar Cover
+            if let keyWindow = UIApplication.shared.keyWindow,
+               let navBarHeight = navigationController?.navigationBar.frame.height,
+               let safeAreaInsets = UIApplication.shared.keyWindow?.safeAreaInsets {
+                let navBarCoverHeight = navBarHeight + safeAreaInsets.top
+                navBarCoverView.frame = CGRectMake(0, 0, 1000, navBarCoverHeight)
+                navBarCoverView.backgroundColor = .black
+                navBarCoverView.alpha = 0
+                keyWindow.addSubview(navBarCoverView)
+            }
+            
+            // tabBar Cover
+            if let keyWindow = UIApplication.shared.keyWindow,
+               let tabBarHeight = tabBarController?.tabBar.frame.height {
+                tabBarCoverView.frame = CGRectMake(0, keyWindow.frame.height - tabBarHeight, 1000, tabBarHeight)
+                tabBarCoverView.backgroundColor = .black
+                tabBarCoverView.alpha = 0
+                keyWindow.addSubview(tabBarCoverView)
+            }
+            
+            // zoom Image
+            zoomImageView.backgroundColor = .red
+            zoomImageView.frame = startingFrame
+            zoomImageView.isUserInteractionEnabled = true
+            zoomImageView.image = statusImageView.image
+            zoomImageView.contentMode = .scaleAspectFill
+            zoomImageView.clipsToBounds = true
+            view.addSubview(zoomImageView)
+            
+            // set zoomOut gesture
+            zoomImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomOut)))
+            
+            // zoomIn
+            UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                let height = (self.view.frame.width / statusImageView.frame.width) * statusImageView.frame.height
+                let y = (self.view.frame.height - height) / 2
+                self.zoomImageView.frame = CGRectMake(0, y, self.view.frame.width, height)
+                self.blackBackgroundView.alpha = 1
+                self.navBarCoverView.alpha = 1
+                self.tabBarCoverView.alpha = 1
+            })
+        }
+    }
+    
+    @objc func zoomOut() {
+        if let startingFrame = statusImageView!.superview?.convert(statusImageView!.frame, to: nil) {
+            
+            UIView.animate(withDuration: 0.75) {
+                self.zoomImageView.frame = startingFrame
+                self.blackBackgroundView.alpha = 0
+                self.navBarCoverView.alpha = 0
+                self.tabBarCoverView.alpha = 0
+            } completion: { didComplete in
+                self.zoomImageView.removeFromSuperview()
+                self.blackBackgroundView.removeFromSuperview()
+                self.navBarCoverView.removeFromSuperview()
+                self.tabBarCoverView.removeFromSuperview()
+                self.statusImageView?.alpha = 1
+            }
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return posts.count
     }
@@ -75,6 +154,7 @@ class FeedViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let feedCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FeedCell
         feedCell.post = posts[indexPath.item]
+        feedCell.feedViewController = self
         return feedCell
     }
     
